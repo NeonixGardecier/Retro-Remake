@@ -7,6 +7,7 @@ public class InputSystem : MonoBehaviour
 
     public event OnInputChanged OnMovement;
     public event OnInputChanged OnJump;
+    public event OnInputChanged OnDownKey;
 
     bool movingHeld;
     InputAction.CallbackContext movementContext;
@@ -42,6 +43,14 @@ public class InputSystem : MonoBehaviour
         { 
             jumpContext = context;
             OnJump.Invoke(jumpContext);         
+        }
+    }
+
+    public void OnDownInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnDownKey.Invoke(context);
         }
     }
 }
