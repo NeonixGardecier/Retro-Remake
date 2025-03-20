@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlatformDetector
   - PlayerProj
+  - Bridge
   layers:
   - Default
   - TransparentFX
