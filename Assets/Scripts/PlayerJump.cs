@@ -13,10 +13,13 @@ public class PlayerJump : MonoBehaviour
     public bool canJump = true;
     public Rigidbody rb;
 
+    public GameObject jumpDetector;
+
     void Start()
     {
     	jumpDir = new Vector3(0.0f, 2.0f, 0.0f);
         inputs.OnJump += Jump;
+        inputs.OnDownKey += DescendPlatformManually;
     }
 
     void OnCollisionStay()
@@ -39,5 +42,40 @@ public class PlayerJump : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canJump = true;
         isGrounded = false;
+    }
+
+    void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.tag == "MoveBackInSceneTrigger")
+        {
+            transform.position += new Vector3(0,0,1);
+        }
+
+        if (other.gameObject.tag == "MoveDownInSceneTrigger")
+        {
+            transform.position += new Vector3(0,-1.2f,0);
+        }
+
+        if (other.gameObject.tag == "MoveForwardInSceneTrigger")
+        {
+            DescendPlatform();
+        }
+    }
+
+    void DescendPlatformManually(InputAction.CallbackContext context)
+    {
+        if (isGrounded)
+        {
+            isGrounded = false;
+            DescendPlatform();
+        }
+    }
+
+    public void DescendPlatform()
+    {
+        if (transform.position.z > 0.6f)
+        {
+            transform.position += new Vector3(0,0, -1);
+        }
     }
 }

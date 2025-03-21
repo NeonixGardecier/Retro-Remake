@@ -7,6 +7,9 @@ TagManager:
   - PlatformDetector
   - PlayerProj
   - Bridge
+  - MoveBackInSceneTrigger
+  - MoveForwardInSceneTrigger
+  - MoveDownInSceneTrigger
   layers:
   - Default
   - TransparentFX
