@@ -2119,7 +2119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791344026}
   m_Layer: 6
-  m_Name: GameObject (1)
+  m_Name: ShotgunMarker 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2134,7 +2134,7 @@ Transform:
   m_GameObject: {fileID: 791344025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3306,7 +3306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1443611004}
   m_Layer: 6
-  m_Name: GameObject
+  m_Name: ShotgunMarker 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3321,7 +3321,7 @@ Transform:
   m_GameObject: {fileID: 1443611003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5193,8 +5193,8 @@ MonoBehaviour:
   offset: {x: -0.95, y: 0, z: 0}
   distanceMult: 1
   directionalMarker: {fileID: 160808121}
-  shotgunMarker1: {fileID: 0}
-  shotgunMarker2: {fileID: 0}
+  shotgunMarker1: {fileID: 1443611003}
+  shotgunMarker2: {fileID: 791344025}
   projectile: {fileID: 7656733325003236676, guid: 681dd56164b0b544db470f0b1535c726, type: 3}
   cooldown: 0.5
   lifeTime: 2
