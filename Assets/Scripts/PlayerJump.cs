@@ -48,7 +48,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (other.gameObject.tag == "MoveBackInSceneTrigger")
         {
-            transform.position += new Vector3(0,0,1);
+            SetLayerMove(transform.position.z + 1);
         }
 
         if (other.gameObject.tag == "MoveDownInSceneTrigger")
@@ -75,7 +75,27 @@ public class PlayerJump : MonoBehaviour
     {
         if (transform.position.z > 0.6f)
         {
-            transform.position += new Vector3(0,0, -1);
+            SetLayerMove(transform.position.z - 1);;
+        }
+    }
+
+    private float zLayerMove;
+    public void SetLayerMove(float zLayer)
+    {
+        zLayerMove = Mathf.Round(zLayer);
+    }
+
+    void Update()
+    {
+        if (zLayerMove != 999999)
+        {
+            if (transform.position.z != zLayerMove)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, zLayerMove), 5 * Time.deltaTime);
+            }
+            else{
+                zLayerMove = 999999;
+            }
         }
     }
 }

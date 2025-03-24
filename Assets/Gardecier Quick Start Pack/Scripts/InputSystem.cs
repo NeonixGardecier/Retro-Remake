@@ -60,5 +60,9 @@ public class InputSystem : MonoBehaviour
         {
             OnShootKey.Invoke(context);
         }
+        if (context.canceled)
+        {
+            OnShootKey.Invoke(context);     
+        }
     }
 }
