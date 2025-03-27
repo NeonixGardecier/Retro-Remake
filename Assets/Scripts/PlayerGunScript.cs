@@ -96,7 +96,7 @@ public class PlayerGunScript : MonoBehaviour
             Vector2 inputVector = lastDirectional;
             UpdateMarker(inputVector);
             
-            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f,0), transform.rotation);
+            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f + offset.y, 0), transform.rotation);
             spawnedProj.transform.LookAt(directionalMarker.transform);
             spawnedProj.GetComponent<BulletMove>().speed = bulletSpeed;
             Destroy(spawnedProj, lifeTime);
@@ -112,7 +112,7 @@ public class PlayerGunScript : MonoBehaviour
             Vector2 inputVector = lastDirectional;
             UpdateMarker(inputVector);
             
-            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f,0), transform.rotation);
+            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f + offset.y, 0), transform.rotation);
             spawnedProj.transform.LookAt(directionalMarker.transform);
             spawnedProj.GetComponent<BulletMove>().speed = bulletSpeed;
             Destroy(spawnedProj, lifeTime);
@@ -128,17 +128,17 @@ public class PlayerGunScript : MonoBehaviour
             Vector2 inputVector = lastDirectional;
             UpdateMarker(inputVector);
 
-            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f,0), transform.rotation);
+            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f + offset.y, 0), transform.rotation);
             spawnedProj.transform.LookAt(directionalMarker.transform);
             spawnedProj.GetComponent<BulletMove>().speed = bulletSpeed;
             Destroy(spawnedProj, lifeTime / 2);
 
-            GameObject spawnedProj1 = Instantiate(projectile, transform.position + new Vector3(0,1f,0), transform.rotation);
+            GameObject spawnedProj1 = Instantiate(projectile, transform.position + new Vector3(0,1f + offset.y, 0), transform.rotation);
             spawnedProj1.transform.LookAt(shotgunMarker1.transform);
             spawnedProj1.GetComponent<BulletMove>().speed = bulletSpeed;
             Destroy(spawnedProj1, lifeTime / 2);
 
-            GameObject spawnedProj2 = Instantiate(projectile, transform.position + new Vector3(0,1f,0), transform.rotation);
+            GameObject spawnedProj2 = Instantiate(projectile, transform.position + new Vector3(0,1f + offset.y, 0), transform.rotation);
             spawnedProj2.transform.LookAt(shotgunMarker2.transform);
             spawnedProj2.GetComponent<BulletMove>().speed = bulletSpeed;
             Destroy(spawnedProj2, lifeTime / 2);
