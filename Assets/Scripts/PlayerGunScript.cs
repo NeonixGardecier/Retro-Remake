@@ -21,7 +21,7 @@ public class PlayerGunScript : MonoBehaviour
     public float lifeTime;
     public float bulletSpeed;
     private bool canFire = true;
-    public enum FiringModes {none, shotgun, rapid};
+    public enum FiringModes {none, shotgun, rapid, MachineGun};
     public FiringModes selectedFiringMode;
 
     void Start()
@@ -77,6 +77,10 @@ public class PlayerGunScript : MonoBehaviour
 
                 case FiringModes.rapid:
                     FireMode_Rapid();
+                break;
+    
+                case FiringModes.MachineGun:
+                    FireMode_MachineGun();
                 break;
             }
         }
@@ -145,5 +149,21 @@ public class PlayerGunScript : MonoBehaviour
 
             StartCoroutine(ShootCooldown(cooldown * 1.5f));
         }
+    }
+
+    void FireMode_MachineGun()
+    {
+        if (canFire)
+        {
+            Vector2 inputVector = lastDirectional;
+            UpdateMarker(inputVector);
+            
+            GameObject spawnedProj = Instantiate(projectile, transform.position + new Vector3(0,1f + offset.y, 0), transform.rotation);
+            spawnedProj.transform.LookAt(directionalMarker.transform.position + new Vector3(Random.Range(-0.18f, 0.18f), Random.Range(-0.18f, 0.18f), 0));
+            spawnedProj.GetComponent<BulletMove>().speed = bulletSpeed * 1.25f;
+            Destroy(spawnedProj, lifeTime);
+
+            StartCoroutine(ShootCooldown(cooldown / 4.5f));
+        }       
     }
 }
