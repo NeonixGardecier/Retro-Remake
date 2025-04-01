@@ -10,6 +10,7 @@ TagManager:
   - MoveBackInSceneTrigger
   - MoveForwardInSceneTrigger
   - MoveDownInSceneTrigger
+  - segment
   layers:
   - Default
   - TransparentFX
