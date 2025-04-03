@@ -14,9 +14,9 @@ public class BulletMove : MonoBehaviour
         if (!isHoming)
         {
             Vector3 offset = new Vector3(0,-0.3f,0);
-            Vector3 spherePos = transform.position + (Vector3.forward * 2.5f) + offset;
+            Vector3 spherePos = transform.position + (transform.forward * 2.5f) + offset;
 
-            Collider[] hitColliders = Physics.OverlapSphere(spherePos, 3);
+            Collider[] hitColliders = Physics.OverlapSphere(spherePos, 1.5f);
 
             foreach (var hitCollider in hitColliders)
             {
