@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
         if (other.gameObject.tag == "PlayerProj")
         {
             hp -= 1;
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<BulletMove>().DestroyThis(0f);
 
             if (hp <= 0)
             {
