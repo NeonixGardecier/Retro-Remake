@@ -6,13 +6,15 @@ public class BulletMove : MonoBehaviour
 
     public bool isHoming = false;
     public Transform homingTarget;
+
+    public GameObject ExplosionEffect;
     
     void Update()
     {
         if (!isHoming)
         {
-            Vector3 offset = new Vector3(0,-0.2f,0);
-            Vector3 spherePos = transform.position + (Vector3.forward * 3) + offset;
+            Vector3 offset = new Vector3(0,-0.3f,0);
+            Vector3 spherePos = transform.position + (Vector3.forward * 2.5f) + offset;
 
             Collider[] hitColliders = Physics.OverlapSphere(spherePos, 3);
 
@@ -33,5 +35,10 @@ public class BulletMove : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);        
     }
 
+    public void DestroyThis(float time)
+    {
+        Destroy(Instantiate(ExplosionEffect, transform.position, transform.rotation), 0.25f);
+        Destroy(this.gameObject, time);
+    }
 
 }
