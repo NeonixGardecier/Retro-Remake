@@ -35,6 +35,11 @@ public class BulletMove : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);        
     }
 
+    public void EnableGravity()
+    {
+        GetComponent<Rigidbody>().useGravity = true;
+    }
+
     public void DestroyThis(float time)
     {
         Destroy(Instantiate(ExplosionEffect, transform.position, transform.rotation), 0.25f);
