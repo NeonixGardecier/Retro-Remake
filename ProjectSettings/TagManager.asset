@@ -12,6 +12,7 @@ TagManager:
   - MoveDownInSceneTrigger
   - segment
   - Enemy
+  - EnemyProj
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - PlayerBullet
   - Enemy
   - CollideOnlyWithEnemy
-  - 
+  - EnemyBullet
   - 
   - 
   - 

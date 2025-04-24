@@ -17,13 +17,6 @@ public class HealthBar : MonoBehaviour
     }
 
 
-     void update()
-     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
-     }
     public void SetMaxHealth(int health )
     {
         slider.maxValue = health;
@@ -32,7 +25,6 @@ public class HealthBar : MonoBehaviour
     }
     
     public void SetHealth(int health) 
-    
     {
        slider.value = health;
     }
@@ -41,5 +33,16 @@ public class HealthBar : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("a");
+        if (other.gameObject.tag == "EnemyProj")
+        {
+            Debug.Log("B");
+            TakeDamage(20);
+            other.gameObject.GetComponent<BulletMove>().DestroyThis(0f);
+        }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88608910545555346}
   - component: {fileID: 3501381557992166145}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,9 +161,10 @@ GameObject:
   - component: {fileID: 3824744405949971578}
   - component: {fileID: 2280738365895066215}
   - component: {fileID: -240276580417299366}
-  m_Layer: 7
-  m_Name: Projectile_Player
-  m_TagString: PlayerProj
+  - component: {fileID: -5704390842264985515}
+  m_Layer: 10
+  m_Name: Projectile_Enemy
+  m_TagString: EnemyProj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,3 +275,30 @@ MonoBehaviour:
   isHoming: 0
   homingTarget: {fileID: 0}
   ExplosionEffect: {fileID: 2408830267084523938, guid: ad844826d01ab524ca515e1df1923f0a, type: 3}
+--- !u!54 &-5704390842264985515
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656733325003236676}
+  serializedVersion: 4
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
