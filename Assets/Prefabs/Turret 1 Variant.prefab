@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: hasGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3460947901556319313, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
+      propertyPath: attackSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4657640036777264299, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.91395
