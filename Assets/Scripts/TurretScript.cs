@@ -33,6 +33,7 @@ public class TurretScript : MonoBehaviour
                 projScript.speed = projSpeed;
 
                 if (hasGravity){projScript.EnableGravity();}
+                Destroy(spawnedProj, 4);
 
                 StartCoroutine(FireCooldown());
             }
