@@ -94,6 +94,10 @@ PrefabInstance:
       propertyPath: projSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3460947901556319313, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
+      propertyPath: attackSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4657640036777264299, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.91395
@@ -137,6 +141,10 @@ PrefabInstance:
     - target: {fileID: 6501002587513248741, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
       propertyPath: m_Name
       value: Turret 2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501002587513248741, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6905681285201419225, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
       propertyPath: m_Enabled

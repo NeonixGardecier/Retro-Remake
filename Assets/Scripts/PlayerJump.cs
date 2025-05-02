@@ -20,6 +20,7 @@ public class PlayerJump : MonoBehaviour
     	jumpDir = new Vector3(0.0f, 2.0f, 0.0f);
         inputs.OnJump += Jump;
         inputs.OnDownKey += DescendPlatformManually;
+        inputs.OnUpKey += AscendPlatform;
     }
 
     void OnCollisionStay()
@@ -61,10 +62,18 @@ public class PlayerJump : MonoBehaviour
             DescendPlatform();
         }
     }
+    
+    void AscendPlatform(InputAction.CallbackContext context)
+    {
+        if (!isGrounded)
+        {
+            SetLayerMove(transform.position.z + 1);
+        }
+    }
 
     void DescendPlatformManually(InputAction.CallbackContext context)
     {
-        if (isGrounded)
+        if (!isGrounded)
         {
             isGrounded = false;
             DescendPlatform();
@@ -75,7 +84,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (transform.position.z > 0.6f)
         {
-            SetLayerMove(transform.position.z - 1);;
+            SetLayerMove(transform.position.z - 1);
         }
     }
 

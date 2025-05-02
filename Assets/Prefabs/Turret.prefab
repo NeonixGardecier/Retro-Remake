@@ -412,7 +412,7 @@ MonoBehaviour:
   barrel: {fileID: 4588482795534724663}
   hasGravity: 1
   aggroRange: 7
-  attackSpeed: 2
+  attackSpeed: 1.5
   projSpeed: 4
 --- !u!114 &-5867093456559035456
 MonoBehaviour:
