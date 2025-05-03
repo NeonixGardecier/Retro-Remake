@@ -15,6 +15,9 @@ public class PlayerJump : MonoBehaviour
 
     public GameObject jumpDetector;
 
+    public bool level2Mode = false;
+    public bool level2Complete = false;
+
     void Start()
     {
     	jumpDir = new Vector3(0.0f, 2.0f, 0.0f);
@@ -65,7 +68,7 @@ public class PlayerJump : MonoBehaviour
     
     void AscendPlatform(InputAction.CallbackContext context)
     {
-        if (!isGrounded)
+        if (!isGrounded && !level2Mode)
         {
             SetLayerMove(transform.position.z + 1);
         }
@@ -73,7 +76,7 @@ public class PlayerJump : MonoBehaviour
 
     void DescendPlatformManually(InputAction.CallbackContext context)
     {
-        if (!isGrounded)
+        if (!isGrounded && !level2Mode)
         {
             isGrounded = false;
             DescendPlatform();
@@ -94,17 +97,27 @@ public class PlayerJump : MonoBehaviour
         zLayerMove = Mathf.Round(zLayer);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (zLayerMove != 999999)
         {
-            if (transform.position.z != zLayerMove)
+            if (transform.position.z != zLayerMove && !level2Mode)
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, zLayerMove), 5 * Time.deltaTime);
             }
             else{
                 zLayerMove = 999999;
             }
+        }
+
+        if (level2Mode)
+        {
+            zLayerMove = transform.position.z;
+            
+            if (level2Complete)
+            {
+                transform.Translate(new Vector3(0, 0f, 1f) * 4.0f * Time.deltaTime);   
+            }       
         }
     }
 }

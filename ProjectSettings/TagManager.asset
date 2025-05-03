@@ -13,6 +13,7 @@ TagManager:
   - segment
   - Enemy
   - EnemyProj
+  - CompleteLevelTwo
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Enemy
   - CollideOnlyWithEnemy
   - EnemyBullet
-  - 
+  - Level2Zblock
   - 
   - 
   - 
