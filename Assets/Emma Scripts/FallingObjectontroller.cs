@@ -2,19 +2,27 @@ using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    float wait = 0.1f;
+    float wait = 1f;
+    private GameObject _instance;
     public GameObject FallingObjectPreFab;
     public Transform SpawnPoint;
 
     void Start()
     {
-        SpawnFallingObjectPreFab();
+        Invoke(nameof(SpawnFallingObjectPreFab),wait);
+    
     }
-
+    
     void SpawnFallingObjectPreFab()
     {
-        Instantiate(FallingObjectPreFab, SpawnPoint.position, Quaternion.identity);
+        if (_instance) return;
+
+        Vector3 spawnPos = SpawnPoint != null ? SpawnPoint.position : transform.position;
+
+        _instance = Instantiate(FallingObjectPreFab,spawnPos,Quaternion.identity);
     }
+
+    
+
 }
 
-//chatgpt only fixed my syntax errors 
