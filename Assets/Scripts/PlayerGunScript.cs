@@ -23,6 +23,7 @@ public class PlayerGunScript : MonoBehaviour
     private bool canFire = true;
     public enum FiringModes {none, shotgun, rapid, MachineGun};
     public FiringModes selectedFiringMode;
+    public bool level2Mode = false;
 
     void Start()
     {
@@ -46,6 +47,11 @@ public class PlayerGunScript : MonoBehaviour
             inputVector.x = lastDirectional.x;
         }
         directionalMarker.transform.position = offset + new Vector3(transform.position.x + (inputVector.x + distanceMult), transform.position.y + (inputVector.y + distanceMult), transform.position.z + 0);
+
+        if (level2Mode)
+        {
+            directionalMarker.transform.position = new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z + 1.5f);
+        }
     }
 
     private bool isShooting;

@@ -16,6 +16,11 @@ public class TurretScript : MonoBehaviour
 
     private bool canFire = true;
 
+    void Start()
+    {
+        player = GameObject.Find("Player").transform;
+    }
+
     void Update()
     {
         if (Vector3.Distance(transform.position, player.position) < aggroRange)

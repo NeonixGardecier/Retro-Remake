@@ -12,6 +12,7 @@ public class FloorEnemy : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        Player = GameObject.Find("Player").transform;
     }
 
     void Update()
