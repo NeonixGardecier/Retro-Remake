@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5581392306975078773}
   - component: {fileID: 4955571649755434383}
   - component: {fileID: 508449013449330026}
+  - component: {fileID: 1634451685484201033}
   m_Layer: 0
   m_Name: FallingObject
   m_TagString: Untagged
@@ -151,3 +152,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &1634451685484201033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566750030789126096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873a7d3360d6b7443a0d49cdaa9f14c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FallingObject: {fileID: 0}

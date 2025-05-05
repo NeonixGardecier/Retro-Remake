@@ -3,16 +3,17 @@ using UnityEngine;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     float wait = 0.1f;
-    public GameObject FallingObject;
+    public GameObject FallingObjectPreFab;
+    public Transform SpawnPoint;
 
     void Start()
     {
-        InvokeRepeating("Fall", wait, wait);
+        SpawnFallingObjectPreFab();
     }
 
-    void Fall()
+    void SpawnFallingObjectPreFab()
     {
-        Instantiate(FallingObject, new Vector3(Random.Range(-10, 10), 10, 0), Quaternion.identity);
+        Instantiate(FallingObjectPreFab, SpawnPoint.position, Quaternion.identity);
     }
 }
 
