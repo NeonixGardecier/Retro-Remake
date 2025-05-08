@@ -5911,6 +5911,7 @@ MonoBehaviour:
   lifeTime: 2
   bulletSpeed: 7
   selectedFiringMode: 0
+  level2Mode: 0
 --- !u!114 &2104989321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5930,6 +5931,8 @@ MonoBehaviour:
   canJump: 1
   rb: {fileID: 2104989323}
   jumpDetector: {fileID: 0}
+  level2Mode: 0
+  level2Complete: 0
 --- !u!114 &2104989322
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -68,7 +68,7 @@ public class PlayerJump : MonoBehaviour
     
     void AscendPlatform(InputAction.CallbackContext context)
     {
-        if (!isGrounded && !level2Mode)
+        if (!level2Mode)
         {
             SetLayerMove(transform.position.z + 1);
         }
@@ -76,7 +76,7 @@ public class PlayerJump : MonoBehaviour
 
     void DescendPlatformManually(InputAction.CallbackContext context)
     {
-        if (!isGrounded && !level2Mode)
+        if (!level2Mode)
         {
             isGrounded = false;
             DescendPlatform();
@@ -87,7 +87,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (transform.position.z > 0.6f)
         {
-            SetLayerMove(transform.position.z - 1);
+            SetLayerMove(transform.position.z - 0.6f);
         }
     }
 
