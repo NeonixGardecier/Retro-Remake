@@ -27,15 +27,14 @@ public class PlayerGunScript : MonoBehaviour
 
     void Start()
     {
-        inputSystem.OnMovement += UpdateDirectional;
         inputSystem.OnShootKey += Shoot;
 
         lastDirectional = new Vector2(1,0);
     }
 
-    void UpdateDirectional(InputAction.CallbackContext context)
+    void FixedUpdate()
     {        
-        Vector2 inputVector = context.ReadValue<Vector2>();
+        Vector2 inputVector = inputSystem.movementInput;
         lastDirectional = inputVector;
         UpdateMarker(inputVector);
     }
@@ -178,28 +177,24 @@ public class PlayerGunScript : MonoBehaviour
         if (other.gameObject.tag == ("shotGun"))
         {
             StartCoroutine(ActivatePowerUp(FiringModes.shotgun));
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
       
         else if (other.gameObject.tag == ("MachineGun"))
         {
             StartCoroutine(ActivatePowerUp(FiringModes.MachineGun));
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
 
         else if (other.gameObject.tag ==("rapidFire")){
             StartCoroutine(ActivatePowerUp(FiringModes.rapid));
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
         else if (other.gameObject.tag ==("fireBall")){
             StartCoroutine(ActivatePowerUp(FiringModes.shotgun));
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
-        else if (other.gameObject.tag == ("spreadGun")){Destroy(gameObject);}
-        {
-            StartCoroutine(ActivatePowerUp(FiringModes.shotgun));
-            Destroy(gameObject);
-        }
+        else if (other.gameObject.tag == ("spreadGun")){Destroy(other.gameObject);}
     }
 
 

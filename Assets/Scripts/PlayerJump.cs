@@ -18,12 +18,19 @@ public class PlayerJump : MonoBehaviour
     public bool level2Mode = false;
     public bool level2Complete = false;
 
+    Animator anim;
+
     void Start()
     {
     	jumpDir = new Vector3(0.0f, 2.0f, 0.0f);
         inputs.OnJump += Jump;
         inputs.OnDownKey += DescendPlatformManually;
         inputs.OnUpKey += AscendPlatform;
+    }
+
+    void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
     }
 
     void OnCollisionStay()
@@ -36,6 +43,7 @@ public class PlayerJump : MonoBehaviour
     	if(isGrounded && canJump)
         {
             StartCoroutine(JumpCD());
+            anim.SetTrigger("JumpTrigger");
     		rb.AddForce(jumpDir * jumpForce, ForceMode.Impulse);
     	}
     }
@@ -99,6 +107,8 @@ public class PlayerJump : MonoBehaviour
 
     void FixedUpdate()
     {
+        anim.SetBool("Grounded", isGrounded);
+
         if (zLayerMove != 999999)
         {
             if (transform.position.z != zLayerMove && !level2Mode)

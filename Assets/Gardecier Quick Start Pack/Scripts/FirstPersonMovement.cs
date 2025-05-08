@@ -1,19 +1,28 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FirstPersonMovement : MonoBehaviour
 {
     public InputSystem inputs;
     public float speed;
+    
+    Animator anim;
+    InputSystem inputSys;
 
-    void Start()
+    void Awake()
     {
-        inputs.OnMovement += Movement;
+        inputSys = FindObjectOfType<InputSystem>();
+        anim = GetComponentInChildren<Animator>();
     }
 
-    public void Movement(InputAction.CallbackContext context)
+    private void Update() 
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
-        transform.Translate(new Vector3(inputVector.x, 0f, 0f) * speed * Time.deltaTime);
+        Movement();
+    }
+
+    public void Movement()
+    {
+        anim.SetFloat("MovementBlend", Mathf.Abs(inputSys.movementInput.x));
+        //Debug.Log(Mathf.Abs(inputSys.movementInput.x));
+        transform.Translate(new Vector3(inputSys.movementInput.x, 0f, 0f) * speed * Time.deltaTime);
     }
 }

@@ -12,30 +12,14 @@ public class InputSystem : MonoBehaviour
     public event OnInputChanged OnShootKey;
 
     bool movingHeld;
+    bool downHeld;
+    public Vector2 movementInput;
     InputAction.CallbackContext movementContext;
     InputAction.CallbackContext jumpContext;
 
-
-    void Update()
-    {
-        if (movingHeld)
-        {
-            OnMovement.Invoke(movementContext);
-        }
-    }
-
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(context.performed)
-        { 
-            movingHeld = true;
-            movementContext = context;
-        }
-        if(context.canceled)
-        {
-            movingHeld = false;
-        }
-
+        movementInput = context.ReadValue<Vector2>();
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
@@ -52,6 +36,11 @@ public class InputSystem : MonoBehaviour
         if (context.performed)
         {
             OnDownKey.Invoke(context);
+            downHeld = true;
+        }
+        if (context.canceled)
+        {
+            downHeld = false;
         }
     }
 
