@@ -9,7 +9,7 @@ public class LevelProgression : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(level);
         }
     }
 }

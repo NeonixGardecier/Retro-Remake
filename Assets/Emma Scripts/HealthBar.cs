@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
     public int currentHealth;
     
     public HealthBar healthBar;
-
+    public GameObject gameOver;
 
     void start()
     {
@@ -16,6 +16,13 @@ public class HealthBar : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            gameOver.SetActive(true);
+        }
+    }
 
     public void SetMaxHealth(int health )
     {
@@ -41,7 +48,7 @@ public class HealthBar : MonoBehaviour
         if (other.gameObject.tag == "EnemyProj")
         {
             Debug.Log("B");
-            TakeDamage(20);
+            TakeDamage(10);
             other.gameObject.GetComponent<BulletMove>().DestroyThis(0f);
         }
     }

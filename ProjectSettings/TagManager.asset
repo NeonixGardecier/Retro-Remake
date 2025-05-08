@@ -14,6 +14,9 @@ TagManager:
   - Enemy
   - EnemyProj
   - CompleteLevelTwo
+  - shotGun
+  - MachineGun
+  - rapidFire
   layers:
   - Default
   - TransparentFX

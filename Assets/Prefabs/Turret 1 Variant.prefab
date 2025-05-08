@@ -156,6 +156,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5867093456559035456, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
+      propertyPath: powerupPrefab1
+      value: 
+      objectReference: {fileID: 4750497092645655303, guid: 15b290b11c32a7b4e9dc0dd8161eafc5, type: 3}
+    - target: {fileID: -5867093456559035456, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
+      propertyPath: powerupPrefab2
+      value: 
+      objectReference: {fileID: 3231656522196049865, guid: bd564b9111fb86944b6afc7f2e0299f7, type: 3}
+    - target: {fileID: -5867093456559035456, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
+      propertyPath: powerupPrefab3
+      value: 
+      objectReference: {fileID: 5801249076320063646, guid: c032a5cb58041774b90c5a0c34df6e14, type: 3}
     - target: {fileID: 778510109349123824, guid: 27734bf7c941f5642baf74d482a725d0, type: 3}
       propertyPath: m_Enabled
       value: 0

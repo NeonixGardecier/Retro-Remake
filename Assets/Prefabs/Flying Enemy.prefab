@@ -124,6 +124,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  level2Room: {fileID: 0}
+  level2Mode: 0
+  isTurret: 0
+  powerupPrefab1: {fileID: 4750497092645655303, guid: 15b290b11c32a7b4e9dc0dd8161eafc5, type: 3}
+  powerupPrefab2: {fileID: 3231656522196049865, guid: bd564b9111fb86944b6afc7f2e0299f7, type: 3}
+  powerupPrefab3: {fileID: 5801249076320063646, guid: c032a5cb58041774b90c5a0c34df6e14, type: 3}
 --- !u!114 &5071816971898184438
 MonoBehaviour:
   m_ObjectHideFlags: 0
