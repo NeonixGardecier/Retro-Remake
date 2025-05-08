@@ -1,16 +1,15 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelProgression : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int level;
+    
+    void OnCollisionEnter(Collision other) 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
