@@ -172,28 +172,42 @@ public class PlayerGunScript : MonoBehaviour
             StartCoroutine(ShootCooldown(cooldown / 4.5f));
         }       
     }
+    
     void OnCollisionEnter(Collision other)
-{
-      if (other.gameObject.tag == ("shotGun"));
+    {
+        if (other.gameObject.tag == ("shotGun"))
+        {
+            StartCoroutine(ActivatePowerUp(FiringModes.shotgun));
+            Destroy(gameObject);
+        }
       
-      else if (other.gameObject.tag == ("MachineGun"));
+        else if (other.gameObject.tag == ("MachineGun"))
+        {
+            StartCoroutine(ActivatePowerUp(FiringModes.MachineGun));
+            Destroy(gameObject);
+        }
 
-      else if (other.gameObject.tag ==("rapidFire"));
-      else if (other.gameObject.tag ==("fireBall"));
-      else if (other.gameObject.tag == ("spreadGun"));
-      {
-            StartCoroutine(ActivatePowerUp(FiringModes.Shotgun));
-     }
-}
+        else if (other.gameObject.tag ==("rapidFire")){
+            StartCoroutine(ActivatePowerUp(FiringModes.rapid));
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag ==("fireBall")){
+            StartCoroutine(ActivatePowerUp(FiringModes.shotgun));
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == ("spreadGun")){Destroy(gameObject);}
+        {
+            StartCoroutine(ActivatePowerUp(FiringModes.shotgun));
+            Destroy(gameObject);
+        }
+    }
 
 
 IEnumerator ActivatePowerUp(FiringModes fireMode)
 {
     selectedFiringMode = fireMode;
-    yield return new WaitForSeconds(time);
+    yield return new WaitForSeconds(4f);
     selectedFiringMode = FiringModes.none;
-
-    Destroy(GameObject)
 } 
 
 }
