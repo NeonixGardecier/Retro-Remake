@@ -26,3 +26,4 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
 }
 
+//chatgpt only fixed the syntax errors and the capital letters in the right places 
