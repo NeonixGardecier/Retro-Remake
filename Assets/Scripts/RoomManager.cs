@@ -18,7 +18,7 @@ public class RoomManager : MonoBehaviour
     public GameObject enemy;
     public float spawnDelay;
 
-    public void AddKill()
+    public void AddKill() //Kill count for progression
     {
         killsNeeded -= 1;
     }
@@ -28,7 +28,7 @@ public class RoomManager : MonoBehaviour
         StartCoroutine(EnemySpawn());
     }
 
-    IEnumerator EnemySpawn()
+    IEnumerator EnemySpawn() //Spawn enemies constantly
     {
         yield return new WaitForSeconds(spawnDelay);
         EnemyHealth eHP = Instantiate(enemy, transform.position + new Vector3(-2,0,-3), transform.rotation).GetComponent<EnemyHealth>();
@@ -37,14 +37,14 @@ public class RoomManager : MonoBehaviour
         eHP.level2Room = this;
     }
 
-    public void AddTurretKill()
+    public void AddTurretKill() //Add turret kill progression
     {
         turretKillNeeded -= 1;
     }
 
     void Update()
     {
-        if (killsNeeded <= 0)
+        if (killsNeeded <= 0) //If progression met, unlock wall bombs
         {
             for (int i = 0; i < blockers.Length; i++)
             {
@@ -52,14 +52,14 @@ public class RoomManager : MonoBehaviour
             }
         }
 
-        if (turretKillNeeded <= 0)
+        if (turretKillNeeded <= 0) //if wall bombs and turrets kill, progress to next stage
         {
             BlockerWall.SetActive(false);
             player.level2Complete = true;
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other) //Move player to next stage
     {
         if (other.gameObject.tag == "Player")
         {

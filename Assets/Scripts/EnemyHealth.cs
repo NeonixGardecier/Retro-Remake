@@ -14,14 +14,14 @@ public class EnemyHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision other) 
     {
-        if (other.gameObject.tag == "PlayerProj")
+        if (other.gameObject.tag == "PlayerProj") //If player hits this enemy
         {
             hp -= 1;
             other.gameObject.GetComponent<BulletMove>().DestroyThis(0f);
 
-            if (hp <= 0)
+            if (hp <= 0)// if hp is zero
             {
-                if (level2Mode)
+                if (level2Mode) //On level 2 this is needed to track kills for progression
                 {
                     if (isTurret)
                     {
@@ -32,13 +32,13 @@ public class EnemyHealth : MonoBehaviour
                         level2Room.AddKill();
                     }
                 }
-                SpawnPowerup();
-                Destroy(this.gameObject);
+                SpawnPowerup(); //Spawn a powerup
+                Destroy(this.gameObject); //Destroy this enemy
             }
         }
     }
 
-    void SpawnPowerup()
+    void SpawnPowerup() //Chance to spawn powerups
     {
         if (Random.Range(0,100) > 50)
         {

@@ -29,7 +29,7 @@ public class PlayerGunScript : MonoBehaviour
     {
         inputSystem.OnShootKey += Shoot;
 
-        lastDirectional = new Vector2(1,0);
+        lastDirectional = new Vector2(1,0); //Last directional is used when you shoot without a move input
     }
 
     void FixedUpdate()
@@ -39,22 +39,22 @@ public class PlayerGunScript : MonoBehaviour
         UpdateMarker(inputVector);
     }
 
-    void UpdateMarker(Vector2 inputVector)
+    void UpdateMarker(Vector2 inputVector) //Update position of shooting marker which is where the gun shoot towards
     {
-        if (inputVector.y == 0 && inputVector.x == 0)
+        if (inputVector.y == 0 && inputVector.x == 0) //If no input use last input
         {
             inputVector.x = lastDirectional.x;
         }
         directionalMarker.transform.position = offset + new Vector3(transform.position.x + (inputVector.x + distanceMult), transform.position.y + (inputVector.y + distanceMult), transform.position.z + 0);
 
-        if (level2Mode)
+        if (level2Mode) //On level two, set to forward
         {
             directionalMarker.transform.position = new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z + 1.5f);
         }
     }
 
     private bool isShooting;
-    public void Shoot(InputAction.CallbackContext context)
+    public void Shoot(InputAction.CallbackContext context) //Hold shoot bool
     {
         if (context.performed)
         {
@@ -68,7 +68,7 @@ public class PlayerGunScript : MonoBehaviour
 
     void Update()
     {
-        if (isShooting)
+        if (isShooting) //Decide what to shoot
         {
             switch(selectedFiringMode)
             {
@@ -98,7 +98,7 @@ public class PlayerGunScript : MonoBehaviour
         canFire = true;
     }
     
-    void FireMode_Standard()
+    void FireMode_Standard() //Shoot single
     {
         if (canFire)
         {
@@ -114,7 +114,7 @@ public class PlayerGunScript : MonoBehaviour
         }
     }
 
-    void FireMode_Rapid()
+    void FireMode_Rapid() //Shoot fast
     {
         if (canFire)
         {
@@ -130,7 +130,7 @@ public class PlayerGunScript : MonoBehaviour
         }       
     }
 
-    void FireMode_Shotgun()
+    void FireMode_Shotgun() //Shoot shotgun
     {
         if (canFire)
         {
@@ -156,7 +156,7 @@ public class PlayerGunScript : MonoBehaviour
         }
     }
 
-    void FireMode_MachineGun()
+    void FireMode_MachineGun() //SHoot even faster
     {
         if (canFire)
         {
@@ -172,7 +172,7 @@ public class PlayerGunScript : MonoBehaviour
         }       
     }
     
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other) //Detect walking into powerup
     {
         if (other.gameObject.tag == ("shotGun"))
         {
@@ -198,7 +198,7 @@ public class PlayerGunScript : MonoBehaviour
     }
 
 
-IEnumerator ActivatePowerUp(FiringModes fireMode)
+IEnumerator ActivatePowerUp(FiringModes fireMode) //Powerup coroutine
 {
     selectedFiringMode = fireMode;
     yield return new WaitForSeconds(4f);

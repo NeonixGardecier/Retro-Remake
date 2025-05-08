@@ -12,7 +12,7 @@ public class FlyingEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, Player.position) < aggroRange)
+        if (Vector3.Distance(transform.position, Player.position) < aggroRange) //Sin wave movement if in range of player
         {
             transform.position = transform.position + new Vector3(-0.05f, direction, 0);
             if(transform.position.y >= maxLimit) direction = -0.05f;

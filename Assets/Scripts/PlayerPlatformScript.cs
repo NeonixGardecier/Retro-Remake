@@ -3,6 +3,13 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// 
+/// 
+///     THIS SCRIPT IS UNUSED
+/// 
+/// 
+/// </summary>
 public class PlayerPlatformScript : MonoBehaviour
 {
     private InputSystem inputSystem;

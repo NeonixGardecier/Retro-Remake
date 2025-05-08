@@ -23,15 +23,16 @@ public class TurretScript : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) < aggroRange)
+        if (Vector3.Distance(transform.position, player.position) < aggroRange) //If player in range
         {
             Vector3 dropOffAdujustment = new Vector3(0,0.4f,0);      
-            if (hasGravity){dropOffAdujustment = new Vector3(0,2.5f,0);}
+            if (hasGravity){dropOffAdujustment = new Vector3(0,2.5f,0);} //set drop off
 
-            barrel.LookAt(player.position + dropOffAdujustment);
+            barrel.LookAt(player.position + dropOffAdujustment); //look at player
 
             if (canFire)
             {
+                //Shoot
                 GameObject spawnedProj = Instantiate(projectile, barrel.position + (barrel.forward * 1), barrel.rotation);
                 BulletMove projScript = spawnedProj.GetComponent<BulletMove>();
 
@@ -45,7 +46,7 @@ public class TurretScript : MonoBehaviour
         }
     }
 
-    IEnumerator FireCooldown()
+    IEnumerator FireCooldown()// cooldown
     {
         canFire = false;
         yield return new WaitForSeconds(1 / attackSpeed);

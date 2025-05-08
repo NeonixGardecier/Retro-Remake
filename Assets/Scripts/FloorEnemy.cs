@@ -15,7 +15,7 @@ public class FloorEnemy : MonoBehaviour
         Player = GameObject.Find("Player").transform;
     }
 
-    void Update()
+    void Update() //If player is in range move towards
     {
         if (Vector3.Distance(transform.position, Player.position) < aggroRange && Vector3.Distance(transform.position, Player.position) > minDistance)
         {
