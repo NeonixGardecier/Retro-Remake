@@ -172,4 +172,28 @@ public class PlayerGunScript : MonoBehaviour
             StartCoroutine(ShootCooldown(cooldown / 4.5f));
         }       
     }
+    void OnCollisionEnter(Collision other)
+{
+      if (other.gameObject.tag == ("shotGun"));
+      
+      else if (other.gameObject.tag == ("MachineGun"));
+
+      else if (other.gameObject.tag ==("rapidFire"));
+      else if (other.gameObject.tag ==("fireBall"));
+      else if (other.gameObject.tag == ("spreadGun"));
+      {
+            StartCoroutine(ActivatePowerUp(FiringModes.Shotgun));
+     }
+}
+
+
+IEnumerator ActivatePowerUp(FiringModes fireMode)
+{
+    selectedFiringMode = fireMode;
+    yield return new WaitForSeconds(time);
+    selectedFiringMode = FiringModes.none;
+
+    Destroy(GameObject)
+} 
+
 }
